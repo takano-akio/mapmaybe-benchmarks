@@ -10,6 +10,7 @@ mapMaybe f (x:xs) = let
   in case f x of
     Nothing -> rs
     Just r -> r : rs
+{-# NOINLINE [1] mapMaybe #-}
 
 {-# RULES
 "mapMaybe"     [~1] forall f xs. mapMaybe f xs
